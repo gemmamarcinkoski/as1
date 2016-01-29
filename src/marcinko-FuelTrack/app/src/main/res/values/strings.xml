@@ -16,6 +16,8 @@
     <string name="fuel_amount_title">Fuel Amount (in L, numeric to 3 decimal places): </string>
     <string name="unit_cost_title">Fuel Unit Cost (in cents per L, numeric to 1 decimal place): </string>
     <string name="save_log_button">Save Log</string>
+    <string name="total_cost_header">Total Cost: </string>
+    <string name="save_button_label">save_button</string>
 
 
 </resources>

@@ -1,9 +1,13 @@
 package ca.ualberta.marcinko.marcinko_fueltrack;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class AddLogActivity extends AppCompatActivity {
 
@@ -11,6 +15,38 @@ public class AddLogActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_log);
+
+        //getting log entry info on click
+        EditText getDate = (EditText)findViewById(R.id.entered_date);
+        EditText getStation = (EditText)findViewById(R.id.entered_station);
+        EditText getOdometerRead = (EditText)findViewById(R.id.entered_odometer_read);
+        EditText getFuelGrade = (EditText)findViewById(R.id.entered_fuel_grade);
+        EditText getFuelAmount = (EditText)findViewById(R.id.entered_fuel_amount);
+        EditText getFuelUnitCost = (EditText)findViewById(R.id.entered_fuel_unit_cost);
+
+        //String date, String station, double odometer, String grade, double amount, double unitCost
+        //converting to usable
+        String userDate = getDate.getText().toString();
+        String userStation = getStation.getText().toString();
+        Double userOdometer = Double.parseDouble(getOdometerRead.getText().toString());
+        String userGrade = getFuelGrade.getText().toString();
+        Double userFuelAmount = Double.parseDouble(getFuelAmount.getText().toString());
+        Double userUnitCost = Double.parseDouble(getFuelUnitCost.getText().toString());
+
+        //placing all log info into log entry object
+        LogEntry logEntry = new LogEntry(userDate, userStation, userOdometer, userGrade, userFuelAmount, userUnitCost);
+
+        Button saveLogButton = (Button)findViewById(R.id.save_log_button);
+        saveLogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //save log click
+                // TODO: save log entry into LogActivity list and save to file
+                Intent getViewLogsIntent = new Intent(AddLogActivity.this, LogActivity.class);
+                startActivity(getViewLogsIntent);
+
+            }
+        });
     }
 
     @Override

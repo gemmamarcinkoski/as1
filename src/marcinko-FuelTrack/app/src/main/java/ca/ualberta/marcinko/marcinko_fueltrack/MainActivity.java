@@ -1,9 +1,12 @@
 package ca.ualberta.marcinko.marcinko_fueltrack;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,6 +14,28 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Button addLogButton = (Button)findViewById(R.id.addLogButton);
+        Button viewEditLogsButton = (Button)findViewById(R.id.viewEditLogsButton);
+
+        addLogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //going to the add log activity class
+                Intent getAddLogIntent = new Intent(MainActivity.this, AddLogActivity.class);
+                startActivity(getAddLogIntent);
+            }
+        });
+
+        viewEditLogsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //going to logs list view
+                Intent getLogsIntent = new Intent(MainActivity.this, LogActivity.class);
+                startActivity(getLogsIntent);
+
+            }
+        });
     }
 
     @Override
@@ -34,5 +59,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
 
