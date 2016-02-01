@@ -71,6 +71,7 @@ public class AddLogActivity extends AppCompatActivity {
     }
 
     private void saveInFile(){
+        //saving log entry with gson
         try{
             FileOutputStream fos = openFileOutput(MainActivity.FILENAME,0);
             BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));

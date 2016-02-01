@@ -24,7 +24,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View/Edit Logs"
+        android:text="View Logs"
         android:textSize="25dp"
         android:id="@+id/viewEditLogsButton"/>
 

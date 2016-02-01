@@ -19,6 +19,7 @@
     <string name="total_cost_header">Total Cost: </string>
     <string name="save_button_label">Save Log</string>
     <string name="cancel_log_button">Cancel</string>
+    <string name="home_button">Home</string>
 
 
 </resources>

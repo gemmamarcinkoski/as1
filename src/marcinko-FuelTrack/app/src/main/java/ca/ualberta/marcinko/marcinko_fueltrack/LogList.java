@@ -5,9 +5,7 @@ import java.util.List;
 
 /**
  * Created by marcinko on 1/28/16.
- *
  * List object
- *
  */
 public class LogList {
     private List<LogEntry> entries;

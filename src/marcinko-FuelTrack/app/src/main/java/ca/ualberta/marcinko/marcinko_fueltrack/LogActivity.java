@@ -1,9 +1,12 @@
 package ca.ualberta.marcinko.marcinko_fueltrack;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,6 +22,17 @@ public class LogActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log);
+
+        Button goHomeButton = (Button)findViewById(R.id.home_button);
+
+        goHomeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //going to the home screen
+                Intent goHomeIntent = new Intent(LogActivity.this, MainActivity.class);
+                startActivity(goHomeIntent);
+            }
+        });
 
         TextView calculation = (TextView)findViewById(R.id.textView);
         //concatenating calculated total to current textView

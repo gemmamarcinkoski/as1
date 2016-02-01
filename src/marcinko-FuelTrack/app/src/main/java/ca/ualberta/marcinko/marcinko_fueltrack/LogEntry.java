@@ -83,9 +83,9 @@ public class LogEntry {
     }
 
     public String toString() {
-        //can add titles
-        return date + "\n" + station + "\n" + odometer + "\n"
-                + grade + "\n" + amount + "\n" + unitCost + "\n"
-                + cost + "\n" ;
+        //converting data to exportable list entry format
+        return "Date: " + date + "\n" + "Station: " + station + "\n" + "Odometer Reading: "
+                + odometer + "\n" + "Fuel Grade: " + grade + "\n" + "Fuel Amount:" + amount +
+                "\n" + "Fuel Unit Cost: " + unitCost + "\n" + "Cost: " + cost + "\n" ;
     }
 }
