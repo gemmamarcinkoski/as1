@@ -8,8 +8,8 @@ import android.view.MenuItem;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-//this class gets transitions from the main page view/edit log button and from a log entry save button
-//
+/*this class gets transitions from the main page view/edit log button and from a log entry save button
+*/
 public class LogActivity extends AppCompatActivity {
 
     @Override

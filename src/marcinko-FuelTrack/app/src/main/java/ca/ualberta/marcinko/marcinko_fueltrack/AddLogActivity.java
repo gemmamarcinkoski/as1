@@ -9,6 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+/*Activity for Adding Log entries, called by clicking add log button on main page
+*/
+
 public class AddLogActivity extends AppCompatActivity {
 
     @Override
@@ -41,7 +47,7 @@ public class AddLogActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //save log click
-                // TODO: save log entry into LogActivity list and save to file
+                // TODO: save log entry into LogActivity,  LogList and save to file
                 Intent getViewLogsIntent = new Intent(AddLogActivity.this, LogActivity.class);
                 startActivity(getViewLogsIntent);
 

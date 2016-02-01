@@ -2,6 +2,8 @@ package ca.ualberta.marcinko.marcinko_fueltrack;
 
 /**
  * Created by marcinko on 1/28/16.
+ *
+ * Individual list objects created for each entry
  */
 public class LogEntry {
     private String date;

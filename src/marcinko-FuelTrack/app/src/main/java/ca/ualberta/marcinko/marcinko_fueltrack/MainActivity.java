@@ -8,7 +8,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOError;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 public class MainActivity extends AppCompatActivity {
+
+    private static LogList logList;
+    private static final String FILENAME = "file.sav";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,29 +52,31 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+    public static LogList getLogList() {
+        return logList;
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    //From Lab 2 in class Gson lonely twitter example
+    private void loadFromFile() {
+        try{
+            FileInputStream fis = openFileInput(FILENAME);
+            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
+            Gson gson = new Gson();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            // Took from https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html 01-1
+            Type listType = new TypeToken<List<LogEntry>>(){}.getType();
+            logList = new LogList((List<LogEntry>)(gson.fromJson(in, listType)));
+
+        } catch (FileNotFoundException e) {
+            //no file yet, create new log list
+            logList = new LogList();
+        } catch (IOException e){
+            throw new RuntimeException();
         }
 
-        return super.onOptionsItemSelected(item);
     }
-
 }
 

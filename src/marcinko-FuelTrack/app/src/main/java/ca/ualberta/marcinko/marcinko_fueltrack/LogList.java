@@ -5,12 +5,19 @@ import java.util.List;
 
 /**
  * Created by marcinko on 1/28/16.
+ *
+ * List object
+ *
  */
 public class LogList {
     private List<LogEntry> entries;
     //add things, get things from index
     LogList(){
-        entries = new ArrayList<>();
+        this.entries = new ArrayList<>();
+    }
+
+    LogList (List<LogEntry> oldEntries ){
+        this.entries = oldEntries;
     }
 
     public void addEntry(LogEntry entry){
