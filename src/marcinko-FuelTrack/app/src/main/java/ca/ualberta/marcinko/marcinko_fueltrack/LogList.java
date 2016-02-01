@@ -28,6 +28,10 @@ public class LogList {
         return entries.get(index);
     }
 
+    public List<LogEntry> getEntries() {
+        return entries;
+    }
+
     public double calculateTotalCost(){
         double totalCost = 0;
         for (int i=0; i<entries.size(); i++){

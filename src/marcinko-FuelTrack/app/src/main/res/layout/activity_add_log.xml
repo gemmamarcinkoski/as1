@@ -11,14 +11,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Enter_title"
-        android:textSize="25sp"
+        android:textSize="15sp"
         android:textStyle="bold"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/date_title"
-        android:textSize="15sp"/>
+        android:textSize="10sp"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/station_title"
-        android:textSize="15sp"/>
+        android:textSize="10sp"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/odometer_title"
-        android:textSize="15sp"/>
+        android:textSize="10sp"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -55,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/fuel_grade_title"
-        android:textSize="15sp"/>
+        android:textSize="10sp"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -67,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/fuel_amount_title"
-        android:textSize="15sp"/>
+        android:textSize="10sp"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -79,7 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/unit_cost_title"
-        android:textSize="15sp"/>
+        android:textSize="10sp"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -91,6 +91,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/save_button_label"
-        android:onClick="onSaveLogEntry"
         android:id="@+id/save_log_button"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel_log_button"
+        android:id="@+id/cancel_add_log"/>
 </LinearLayout>
