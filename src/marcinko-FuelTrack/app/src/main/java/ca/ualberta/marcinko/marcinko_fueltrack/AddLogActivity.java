@@ -58,6 +58,9 @@ public class AddLogActivity extends AppCompatActivity {
                 //updating logList
                 MainActivity.getLogList().addEntry(logEntry);
 
+                //updating listView
+                MainActivity.getAdapter().notifyDataSetChanged();
+
                 //save log click
                 saveInFile();
                 Intent getViewLogsIntent = new Intent(AddLogActivity.this, LogActivity.class);

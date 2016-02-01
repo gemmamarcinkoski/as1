@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.io.FileNotFoundException;
@@ -12,6 +13,7 @@ import java.io.IOException;
 /*this class gets transitions from the main page view/edit log button and from a log entry save button
 */
 public class LogActivity extends AppCompatActivity {
+    private ListView oldEntriesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,9 @@ public class LogActivity extends AppCompatActivity {
         //concatenating calculated total to current textView
         String totalCost = getString(R.string.total_cost_header) + MainActivity.getLogList().calculateTotalCost();
         calculation.setText(totalCost);
+
+        oldEntriesList = (ListView) findViewById(R.id.listView);
+        oldEntriesList.setAdapter(MainActivity.getAdapter());
 
     }
 

@@ -81,4 +81,11 @@ public class LogEntry {
     private void fuelUpdate(){
         cost = unitCost*amount/100;
     }
+
+    public String toString() {
+        //can add titles
+        return date + "\n" + station + "\n" + odometer + "\n"
+                + grade + "\n" + amount + "\n" + unitCost + "\n"
+                + cost + "\n" ;
+    }
 }

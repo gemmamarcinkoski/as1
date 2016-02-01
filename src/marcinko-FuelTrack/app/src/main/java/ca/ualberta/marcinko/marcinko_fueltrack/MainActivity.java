@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 
 import java.io.BufferedReader;
@@ -25,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
 
     private static LogList logList;
     public static final String FILENAME = "file.sav";
+
+    private static ArrayAdapter<LogEntry> adapter;
+
+    public static ArrayAdapter<LogEntry> getAdapter() {
+        return adapter;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
 
         loadFromFile();
 
+        adapter = new ArrayAdapter<LogEntry>(this, R.layout.list_item, logList.getEntries());
+
+
     }
     public static LogList getLogList() {
         return logList;
@@ -79,5 +89,6 @@ public class MainActivity extends AppCompatActivity {
             throw new RuntimeException();
         }
     }
+
 }
 
