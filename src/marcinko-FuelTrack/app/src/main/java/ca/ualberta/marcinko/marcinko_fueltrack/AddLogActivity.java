@@ -10,7 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
 
 /*Activity for Adding Log entries, called by clicking add log button on main page
 */
@@ -47,7 +53,7 @@ public class AddLogActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //save log click
-                // TODO: save log entry into LogActivity,  LogList and save to file
+                saveInFile();
                 Intent getViewLogsIntent = new Intent(AddLogActivity.this, LogActivity.class);
                 startActivity(getViewLogsIntent);
 
@@ -55,25 +61,19 @@ public class AddLogActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_add_log, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+    private void saveInFile(){
+        try{
+            FileOutputStream fos = openFileOutput(MainActivity.FILENAME,0);
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
+            Gson gson = new Gson();
+            gson.toJson(MainActivity.getLogList(), out);
+            out.flush();
+            fos.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException();
+        } catch (IOException e) {
+            throw new RuntimeException();
         }
 
-        return super.onOptionsItemSelected(item);
     }
 }

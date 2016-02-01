@@ -24,7 +24,7 @@ import com.google.gson.reflect.TypeToken;
 public class MainActivity extends AppCompatActivity {
 
     private static LogList logList;
-    private static final String FILENAME = "file.sav";
+    public static final String FILENAME = "file.sav";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        loadFromFile();
+
     }
     public static LogList getLogList() {
         return logList;
@@ -76,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e){
             throw new RuntimeException();
         }
-
     }
 }
 
